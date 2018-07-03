@@ -71,7 +71,7 @@ namespace Ical.Net
 
             // Only include historical data if asked to do so.  Otherwise,
             // use only the most recent adjustment rules available.
-            var intervals = zone.GetZoneIntervals(earliest, SystemClock.Instance.Now).Where(x => x.Start != Instant.MinValue).ToList();
+            var intervals = zone.GetZoneIntervals(earliest, SystemClock.Instance.GetCurrentInstant()).Where(x => x.Start != Instant.MinValue).ToList();
 
             var matchingDaylightIntervals = new List<ZoneInterval>();
             var matchingStandardIntervals = new List<ZoneInterval>();
